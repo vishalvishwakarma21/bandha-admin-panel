@@ -1,0 +1,161 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+  style="min-height: 70px; background-image: url(assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+  <!-- Mask -->
+  <span class="mask bg-gradient-danger opacity-8"></span>
+</div>
+<div class="container-fluid mt--4">
+  <div class="row">
+    <div class="col-xl-12 order-xl-1">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Edit Store</h3>
+            </div>
+            <!-- <div class="col-4 text-right">
+              <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+            </div> -->
+          </div>
+        </div>
+        <div class="card-body">
+          <form  class="form-signin" [formGroup]="updatestoreForm" (ngSubmit)="updateStore()" >
+            <div class="pl-lg-4">
+              
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-storeimage">Store Image</label>
+                    <input type="file" id="input-storeimage" formControlName="store_image" class="form-control form-control-alternative" placeholder="Name" required>
+                      <div *ngIf="f.store_image.touched && f.store_image.invalid" class="alert alert-danger">
+                        <div *ngIf="f.store_image.errors.required">Store image is required.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-store-name">Store Name</label>
+                    <input type="text" id="input-store-name" formControlName="store_name" class="form-control form-control-alternative" placeholder="Enter store name" required>
+                      <div *ngIf="f.store_name.touched && f.store_name.invalid" class="alert alert-danger">
+                        <div *ngIf="f.store_name.errors.required">Store name is required.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-first-name">Store manager name</label>
+                    <input formControlName="store_manager_name" type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="Store manager name" required>
+                      <div *ngIf="f.store_manager_name.touched && f.store_manager_name.invalid" class="alert alert-danger">
+                        <div *ngIf="f.store_manager_name.errors.required">Store manager name is required.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                    <label class="form-control-label" for="input-first-name">Store Category</label>
+                    <select formControlName="store_category" placeholder="Select Store Category" class="form-control form-control-alternative" required>
+                      <option *ngFor="let category of categories" [value]="category.id"> {{category.name}} </option>
+                    </select>
+                        <div *ngIf="f.store_category.touched && f.store_category.invalid" class="alert alert-danger">
+                        <div *ngIf="f.store_category.errors.required">Store Category is required.</div>
+                    </div>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                    <label class="form-control-label" for="input-details">Details</label>
+                    <input formControlName="details" type="text" id="input-details" class="form-control form-control-alternative" placeholder="Enter details" required>
+                      <div *ngIf="f.details.touched && f.details.invalid" class="alert alert-danger">
+                          <div *ngIf="f.details.errors.required">Details is required.</div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                    <label class="form-control-label" for="input-address">Address</label>
+                    <input formControlName="address" type="text" id="input-address" class="form-control form-control-alternative" placeholder="Enter details" required>
+                      <div *ngIf="f.address.touched && f.address.invalid" class="alert alert-danger">
+                        <div *ngIf="f.address.errors.required">Address is required.</div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                    <label class="form-control-label" for="input-city">City</label>
+                    <input formControlName="city" type="text" id="input-city" class="form-control form-control-alternative" placeholder="Enter city" required>
+                        <div *ngIf="f.city.touched && f.city.invalid" class="alert alert-danger">
+                          <div *ngIf="f.city.errors.required">City is required.</div>
+                    </div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                    <label class="form-control-label" for="input-state">State</label>
+                    <input formControlName="state" type="text" id="input-state" class="form-control form-control-alternative" placeholder="Enter state" required>
+                        <div *ngIf="f.state.touched && f.state.invalid" class="alert alert-danger">
+                            <div *ngIf="f.state.errors.required">State is required.</div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="form-group">
+                      <label class="form-control-label" for="input-country">Country</label>
+                      <input formControlName="country" type="text" id="input-country" class="form-control form-control-alternative" placeholder="Enter country" required>
+                        <div *ngIf="f.country.touched && f.country.invalid" class="alert alert-danger">
+                            <div *ngIf="f.country.errors.required">Country is required.</div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                    <label class="form-control-label" for="input-status">Store Status</label>
+                      <select formControlName="status" required class="form-control form-control-alternative" required>
+                          <option  [value]="1"> Active </option>
+                          <option  [value]="0"> Inactive </option>
+                      </select>
+                      <div *ngIf="f.status.touched && f.status.invalid" class="alert alert-danger">
+                          <div *ngIf="f.status.errors.required">Role is required.</div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <button type="submit"  type="submit" [disabled]="!updatestoreForm.valid" class="btn btn-primary my-4">Update Store</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

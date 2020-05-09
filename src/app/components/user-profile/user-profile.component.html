@@ -1,0 +1,95 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+  style="min-height: 70px; background-image: url(assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+  <!-- Mask -->
+  <span class="mask bg-gradient-danger opacity-8"></span>
+</div>
+<div class="container-fluid mt--4">
+  <div class="row">
+    <div class="col-xl-12 order-xl-1">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Create User</h3>
+            </div>
+            <!-- <div class="col-4 text-right">
+              <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+            </div> -->
+          </div>
+        </div>
+        <div class="card-body">
+          <form class="form-signin" [formGroup]="userForm" (ngSubmit)="addUser()">
+            <!-- <h6 class="heading-small text-muted mb-4">User information</h6> -->
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-username">Name</label>
+                    <input type="text" id="input-username" formControlName="name" required
+                      class="form-control form-control-alternative" placeholder="Name">
+                    <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+                      <div *ngIf="f.name.errors.required">Name is required.</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-email">Email address</label>
+                    <input type="email" id="input-email" formControlName="email" placeholder="Enter email" required
+                      class="form-control form-control-alternative">
+                    <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+                      <div *ngIf="f.email.errors.required">Email is required.</div>
+                      <div *ngIf="f.email.errors.email">Please, enter valid email address.</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-email">Mobile Number</label>
+                    <input type="email" id="input-email" formControlName="mobile_no" placeholder="Enter email" required
+                      class="form-control form-control-alternative">
+                    <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+                      <div *ngIf="f.email.errors.required">Mobile number is required.</div>
+                      <div *ngIf="f.email.errors.email">Please, enter valid mobile number.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-first-name">Password</label>
+                    <input formControlName="password" placeholder="Enter password" required type="password"
+                      id="input-first-name" class="form-control form-control-alternative" placeholder="password">
+                    <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+                      <div *ngIf="f.password.errors.required">Password is required.</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-first-name">Role</label>
+                    <select formControlName="role_id" placeholder="Select Role" required
+                      class="form-control form-control-alternative">
+
+                      <option *ngFor="let role of roles" [value]="role.id"> {{role.name}} </option>
+                    </select>
+                    <div *ngIf="f.role_id.touched && f.role_id.invalid" class="alert alert-danger">
+                      <div *ngIf="f.role_id.errors.required">Role is required.</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <button type="submit" type="submit" [disabled]="!userForm.valid" class="btn btn-primary my-4">Create
+                      User</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
