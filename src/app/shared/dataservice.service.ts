@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, Subject, BehaviorSubject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from "ngx-spinner";
+import * as Rx from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
@@ -14,13 +16,37 @@ export class DataService {
   endpoint: string = 'https://bandhan.herokuapp.com/api/v1';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
+  signInClicked = new BehaviorSubject(false);
 
   constructor(
     private http: HttpClient,
     public router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
   ) {
   }
+
+  setloginLoader(data) {
+    this.signInClicked.next(data);
+  }
+
+
+  loader() {
+    // this.spinner.show("mySpinner", {
+    //   type: "line-scale-party",
+    //   size: "large",
+    //   bdColor: "rgba(0, 0, 0, 1)",
+    //   color: "white",
+    //   template: "<img src='https://thumbs.gfycat.com/RewardingDisfiguredAnnelid-size_restricted.gif' />"
+    // });
+    this.spinner.show();
+  }
+  dismissLoder() {
+    this.spinner.hide();
+  }
+
+
+
   getUsers(): Observable<any> {
     let api = `${this.endpoint}/users`;
     return this.http.get(api, { headers: this.headers }).pipe(
@@ -96,6 +122,17 @@ export class DataService {
       catchError(this.handleError)
     )
   }
+  schemeUpdate(scheme): Observable<any> {
+    console.log("this is the angular -=-=-=-=-=-= schemeUpdated");
+    let api = `${this.endpoint}/scheme/update`;
+    return this.http.post(api, scheme, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        console.log(Response);
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
 
   getSchemes(scheme): Observable<any> {
     console.log("this is the angular -=-=-=-=-=-= schemeCreate");
@@ -124,9 +161,40 @@ export class DataService {
   }
 
   deleteUsers(id): Observable<any> {
+    console.log("this is the id of user =-=-=-=", id)
     let api = `${this.endpoint}/users/delete`;
     let data = {
       'user_id': id
+    }
+    return this.http.post(api, data, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
+
+  userDetails(id) {
+    let api = `${this.endpoint}/users/user-details`;
+    let data = {
+      user_id: id
+    }
+    return this.http.post(api, data, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
+
+  //* Approval for the worker*/
+  approvalStatus(storeId, clubId, userId) {
+    let api = `${this.endpoint}/stores/worker/assign-store`;
+    let data = {
+      'store_id': storeId,
+      'user_id': userId,
+      'club_id': clubId,
+      // 'is_approved':approveId
     }
     return this.http.post(api, data, { headers: this.headers }).pipe(
       map((res: Response) => {
@@ -152,6 +220,8 @@ export class DataService {
       catchError(this.handleError)
     )
   }
+
+
 
 
   // Error 

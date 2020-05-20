@@ -33,7 +33,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let items of activity, let i = index">
+                            <tr *ngFor="let items of activity;let i = index">
                                 <th scope="row">
                                     {{i}}
                                 </th>
@@ -100,6 +100,7 @@
 
                         </tbody>
                     </table>
+                    <!-- <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls> -->
                 </div>
                 <div class="card-footer py-4">
                     <nav aria-label="...">
@@ -127,6 +128,9 @@
                         </ul>
                     </nav>
                 </div>
+                <!-- <pagination-controls (pageChange)="pageChange($event)" style="float: right;" responsive="true"
+                    autoHide="true" responsive="true" previousLabel="Previous" nextLabel="Next">
+                </pagination-controls> -->
             </div>
         </div>
     </div>

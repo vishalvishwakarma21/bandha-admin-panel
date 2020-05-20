@@ -1,0 +1,340 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+        <div class="header-body">
+            <!-- Card stats -->
+        </div>
+    </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <h3 class="mb-0">Details of {{userInfo?.data?.name}} </h3>
+                </div>
+                <hr>
+                <div>
+                    <p class="label">Personal Details</p>
+                    <div style="display: flex;justify-content: space-between;">
+                        <div style="padding: 44px;">
+                            <img [src]="userInfo?.aditional_data?.user_image || 'assets/img/brand/avtar.png'"
+                                alt="Avatar" class="avatar">
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Name
+                                </div>
+                                <div class="col-md-1">
+                                    :
+                                </div>
+                                <div class="col-md-7">
+                                    {{userInfo?.data?.name}}
+                                </div>
+                            </div>
+                            <hr class="line">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Mobile No.
+                                </div>
+                                <div class="col-md-1">
+                                    :
+                                </div>
+                                <div class="col-md-7">
+                                    {{userInfo?.data?.mobile_no}}
+                                </div>
+                            </div>
+                            <hr class="line">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Email Id
+                                </div>
+                                <div class="col-md-1">
+                                    :
+                                </div>
+                                <div class="col-md-7">
+                                    {{userInfo?.data?.email}}
+                                </div>
+                            </div>
+                            <hr class="line">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Address
+                                </div>
+                                <div class="col-md-1">
+                                    :
+                                </div>
+                                <div class="col-md-7">
+                                    {{userInfo?.data?.user_personal?.address}}
+                                </div>
+                            </div>
+                            <hr class="line">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    DateOfBirth
+                                </div>
+                                <div class="col-md-1">
+                                    :
+                                </div>
+                                <div class="col-md-7">
+                                    {{userInfo?.data?.user_personal?.dob}}
+                                </div>
+                            </div>
+                            <hr class="line">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Gender
+                                </div>
+                                <div class="col-md-1">
+                                    :
+                                </div>
+                                <div class="col-md-7">
+                                    {{userInfo?.data?.user_personal?.gender}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                <div>
+                    <p class="label">Identity Proof</p>
+                    <div style="display: flex;justify-content: space-between;">
+                        <div class="adharimage">
+                            <img [src]="userInfo?.aditional_data?.aadhar_image || 'assets/img/brand/avtar.png'"
+                                alt="Avatar" class="avatarAdhar">
+                            <!-- <img [src]="userInfo?.aditional_data?.aadhar_image" alt="Avatar" class="avatarAdhar"> -->
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Aadhar Name
+                                </div>
+                                <div class="col-md-1">
+                                    :
+                                </div>
+                                <div class="col-md-7">
+                                    {{userInfo?.data?.user_documents?.aadhar_name}}
+                                </div>
+                            </div>
+                            <hr class="line">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Aadhar No.
+                                </div>
+                                <div class="col-md-1">
+                                    :
+                                </div>
+                                <div class="col-md-7">
+                                    {{userInfo?.data?.user_documents?.aadhar_no}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div style="display: flex;justify-content: space-between;">
+                        <div class="adharimage">
+                            <img [src]="userInfo?.aditional_data?.pan_image || 'assets/img/brand/avtar.png'"
+                                alt="Avatar" class="avatarAdhar">
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    PanCard Name
+                                </div>
+                                <div class="col-md-1">
+                                    :
+                                </div>
+                                <div class="col-md-7">
+                                    {{userInfo?.data?.user_documents?.pan_name}}
+                                </div>
+                            </div>
+                            <hr class="line">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    PanCard No.
+                                </div>
+                                <div class="col-md-1">
+                                    :
+                                </div>
+                                <div class="col-md-7">
+                                    {{userInfo?.data?.user_documents?.pan_no}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div>
+
+                    <div>
+                        <p class="label">Bank Details</p>
+                        <div style="display: flex;justify-content: space-between;">
+                            <div class="adharimage">
+                                <img [src]="userInfo?.aditional_data?.bank_document || 'assets/img/brand/avtar.png'"
+                                    alt="Avatar" class="avatarAdhar">
+                            </div>
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        Bank Name
+                                    </div>
+                                    <div class="col-md-1">
+                                        :
+                                    </div>
+                                    <div class="col-md-7">
+                                        {{userInfo?.data?.user_bank?.bank_name}}
+                                    </div>
+                                </div>
+                                <hr class="line">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        Account No.
+                                    </div>
+                                    <div class="col-md-1">
+                                        :
+                                    </div>
+                                    <div class="col-md-7">
+                                        {{userInfo?.data?.user_bank?.account_no}}
+                                    </div>
+                                </div>
+                                <hr class="line">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        Branch Address
+                                    </div>
+                                    <div class="col-md-1">
+                                        :
+                                    </div>
+                                    <div class="col-md-7">
+                                        {{userInfo?.data?.user_bank?.branch_address}}
+                                    </div>
+                                </div>
+                                <hr class="line">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        IFSC Code
+                                    </div>
+                                    <div class="col-md-1">
+                                        :
+                                    </div>
+                                    <div class="col-md-7">
+                                        {{userInfo?.data?.user_bank?.ifsc_code}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div style="display: flex;justify-content: center;">
+                    <div class="btn">
+                        <div>
+                            <button *ngIf="userInfo?.data?.is_completed !=1" class="button button2" data-toggle="modal"
+                                data-target="#myModal">Approve</button>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <div>
+                            <button class="button button3" data-toggle="modal"
+                                data-target="#myDisModal">Disapprove</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="modalForm">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <h4 class="modal-title">Are you sure you want to approve ?</h4>
+                    <div class="dropdown">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="dropMenu">Club Name</p>
+                            </div>
+                            <div class="col-md-6">
+                                <select class="selectBox" formControlName="club"
+                                    (change)="clubEvent($event.target.value)">
+                                    <option value="">Select club</option>
+                                    <option value="0" selected>Gold</option>
+                                    <option value="1">Silver</option>
+                                    <option value="2">Bronze</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="dropMenu">Store Name</p>
+                            </div>
+                            <div class="col-md-6">
+                                <select class="selectBox" formControlName="store"
+                                    (change)="storeEvent($event.target.value,items?.id)">
+                                    <option value="">Select store</option>
+                                    <option placeholder="Select store" value="{{items?.id}}"
+                                        *ngFor="let items of stores">{{items.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="btn">
+                    <div>
+                        <button class="button button2" [disabled]="!modalForm.valid"
+                            (click)="confirmStatus()">Confirm</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- The  Disapprove Modal -->
+<div class="modal" id="myDisModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="reasonsModal">
+                <h4 class="modal-title">Please write reason for disapproval.</h4>
+                <div>
+                    <textarea style="width: 68%;
+                    margin-top: 20px;" placeholder="Write comments....."></textarea>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="btn">
+                <div>
+                    <button class="button button2">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

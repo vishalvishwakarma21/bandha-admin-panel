@@ -2,7 +2,6 @@
   <div class="container-fluid">
     <div class="header-body">
       <!-- Card stats -->
-
     </div>
   </div>
 </div>
@@ -19,13 +18,12 @@
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Mobile No.</th>
                 <th scope="col">Role</th>
-                <th scope="col">Edit</th>
+                <th scope="col">View</th>
                 <th scope="col">Delete</th>
               </tr>
             </thead>
@@ -48,59 +46,45 @@
                     {{user?.user_role?.name}}
                   </span>
                 </td>
-                <td style="color:green;">
-                  <i class="fas fa-edit"></i>
+                <td style="color:rgb(27, 31, 216);" (click)="gotoDetails(user?.id)">
+                  <i class="fas fa-eye"></i>
                 </td>
-                <td style="color:red;" (click)="deleteUser(user?.id)">
+                <td style="color:red;" (click)="showModal(user?.id)">
+                  <!-- data-toggle="modal" data-target="#myModal" -->
+                  <!-- (click)="deleteUser(user?.id)" -->
                   <i class="fas fa-trash"></i>
                 </td>
-
-                <!-- <td class="text-right">
-                  <div ngbDropdown placement="bottom-right">
-                    <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
-                      <i class="fas fa-ellipsis-v"></i>
-                    </a>
-                    <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                      <a class="dropdown-item" href="javascript:void(0)">Edit</a>
-                      <a *ngIf="user.can_be_deleted" (click)="deleteUser(user)" class="dropdown-item"
-                        href="javascript:void(0)">Delete</a>
-
-                    </div>
-                  </div>
-                </td> -->
               </tr>
-
             </tbody>
           </table>
-        </div>
-        <div class="card-footer py-4">
-          <nav aria-label="...">
-            <ul class="pagination justify-content-end mb-0">
-              <li class="page-item disabled">
-                <a class="page-link" href="javascript:void(0)" tabindex="-1">
-                  <i class="fas fa-angle-left"></i>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="javascript:void(0)">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="javascript:void(0)">2 <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="javascript:void(0)">
-                  <i class="fas fa-angle-right"></i>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>
   </div>
-  <!-- Dark table -->
+</div>
 
+
+
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div>
+        <p class="modalText">Are you sure you want to delete user?</p>
+      </div>
+      <!-- Modal footer -->
+      <div class="btn">
+        <div>
+          <button class="button button2" (click)="deleteUser(userId)">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
