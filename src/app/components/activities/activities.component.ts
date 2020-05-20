@@ -9,9 +9,13 @@ declare var $: any;
   styleUrls: ['./activities.component.css']
 })
 export class ActivitiesComponent implements OnInit {
-  activity: any;
+  activity: any = [];
   openmodal: any;
   activity_Id: any;
+  pages: any = 1;
+  limit: any;
+  page: number;
+
 
   constructor(private dataService: DataService, private tostr: ToastrService) { }
 
@@ -19,10 +23,16 @@ export class ActivitiesComponent implements OnInit {
     this.getActivity();
   }
 
+
+  pageChange(page) {
+    this.pages = page;
+  }
   getActivity() {
     this.tostr.info("Loading...", "", { progressBar: true, progressAnimation: 'increasing', timeOut: 1000 });
     this.dataService.getActivity().subscribe(res => {
       this.activity = res.data.data;
+      this.limit = res.data.meta.count;
+      this.page = 15;
       console.log("this is the-=-=", this.activity)
     })
   }

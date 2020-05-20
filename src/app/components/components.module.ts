@@ -10,10 +10,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListSchemesComponent } from './list-schemes/list-schemes.component';
 /* import { RolesComponent } from './roles/roles.component';
 import { UsersComponent } from './users/users.component'; */
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
     CommonModule,
+    NgxPaginationModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,

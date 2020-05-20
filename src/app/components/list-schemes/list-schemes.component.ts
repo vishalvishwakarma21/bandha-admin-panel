@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './../../shared/dataservice.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-list-schemes',
   templateUrl: './list-schemes.component.html',
@@ -9,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ListSchemesComponent implements OnInit {
   schemes: any;
 
-  constructor(private dataService: DataService, private tostr: ToastrService) { }
+  constructor(private dataService: DataService, private tostr: ToastrService, public router: Router) { }
 
   ngOnInit(): void {
     this.getSchemes();
@@ -23,5 +24,8 @@ export class ListSchemesComponent implements OnInit {
       this.schemes = res.data.data;
       console.log("this is the-=-=", this.schemes)
     })
+  }
+  editSchemesFunction(id) {
+    this.router.navigate(['edit-schemes/' + id])
   }
 }

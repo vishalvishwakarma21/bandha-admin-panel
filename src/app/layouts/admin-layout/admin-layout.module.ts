@@ -23,7 +23,6 @@ import { SiteSettingComponent } from 'src/app/components/site-setting/site-setti
 import { ProductAddComponent } from 'src/app/components/product-add/product-add.component';
 import { ActivityAddComponent } from 'src/app/components/activity-add/activity-add.component';
 import { StoreAddComponent } from 'src/app/components/store-add/store-add.component';
-// import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [

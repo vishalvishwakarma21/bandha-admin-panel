@@ -19,6 +19,8 @@ import { ProductEditComponent } from 'src/app/components/product-edit/product-ed
 import { SiteSettingComponent } from 'src/app/components/site-setting/site-setting.component';
 import { CreateSchemesComponent } from 'src/app/components/create-schemes/create-schemes.component';
 import { ListSchemesComponent } from 'src/app/components/list-schemes/list-schemes.component';
+import { EditSchemesComponent } from 'src/app/edit-schemes/edit-schemes.component';
+import { UserdetailsComponent } from 'src/app/userdetails/userdetails.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -42,6 +44,8 @@ export const AdminLayoutRoutes: Routes = [
 
     { path: 'site-setting', component: SiteSettingComponent },
     { path: 'create-schemes', component: CreateSchemesComponent },
-    { path: 'list-schemes', component: ListSchemesComponent }
+    { path: 'list-schemes', component: ListSchemesComponent },
+    { path: 'edit-schemes/:id', component: EditSchemesComponent },
+    { path: 'userdetails/:id', component: UserdetailsComponent }
 
 ];
