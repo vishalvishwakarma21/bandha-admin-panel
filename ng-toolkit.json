@@ -1,0 +1,15 @@
+{
+  "serverless": {
+    "provider": "aws",
+    "project": "argon-dashboard-angular",
+    "skipInstall": false,
+    "directory": ".",
+    "lambdaTS": false,
+    "offline": false,
+    "clientProject": "argon-dashboard-angular",
+    "serverless": {
+      "aws": {},
+      "gcloud": {}
+    }
+  }
+}

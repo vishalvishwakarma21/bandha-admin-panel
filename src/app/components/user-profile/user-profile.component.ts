@@ -40,9 +40,8 @@ export class UserProfileComponent implements OnInit {
   getRoles() {
     this.tostr.info("Fetching Roles", "", { progressBar: true, progressAnimation: 'increasing', timeOut: 1000 });
     this.dataService.getRoles().subscribe(res => {
-
-
       this.roles = res.data;
+      console.log("this is the data of the roles -=-=-=-=", this.roles)
     })
   }
 

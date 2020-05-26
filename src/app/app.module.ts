@@ -28,7 +28,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    // NgxPaginationModule
+
   ],
   declarations: [
     AppComponent,
